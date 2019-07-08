@@ -13,12 +13,11 @@ class Container {
     this.instances = instances;
   }
 
-  getClient() {
-    return this.instances.client;
-  }
-
-  getProfileRequestFactory() {
-    return this.instances.profileRequestFactory;
+  getInstanceOf(name) {
+    if (this.instances[name]) {
+      return this.instances[name];
+    }
+    throw 'No instance by that name';
   }
 }
 
@@ -34,8 +33,8 @@ class ProfileRequestFactory {
 
 const container = new Container(productionInstances);
 
-const client = container.getClient();
+const client = container.getInstanceOf('client');
 const authToken = 'token'; // From a request we haven't implemented
-const profileRequest = container.getProfileRequestFactory().getInstance(authToken);
+const profileRequest = container.getInstanceof('profileRequestFactory').getInstance(authToken);
 const profile = client.get(profileRequest);
 
