@@ -16,7 +16,7 @@ class Profile {
   }
 }
 
-const WebServiceProfileMapper {
+class WebServiceProfileMapper {
   constructor(response) {
     this.response = response;
   }
