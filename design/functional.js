@@ -1,9 +1,9 @@
-const lamp = { state: 'off' };
+const lamp = { state: 'off', pluggedIn: true };
 
 function switchOn(lamp) {
-  lamp.state = 'on';
+  return Object.assign({}, lamp, { state: 'on' });
 }
 
 function switchOff(lamp) {
-  lamp.state = 'off';
+  return Object.assign({}, lamp, { state: 'off' });
 }
