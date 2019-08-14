@@ -9,44 +9,9 @@ class WebServiceClient {
   }
 }
 
-class SomethingElse {
-  constructor(isAmazing, score) {
-    this.isAmazing = isAmazing;
-    this.score = score;
-  }
-}
+class SomethingElseRequest {/*...*/}
 
-class Profile {
-  constructor(name, birthdate, accessLevel) {
-    this.name = name;
-    this.birthdate = birthdate;
-    this.accessLevel = accessLevel;
-  }
-}
-
-class SomethingElseRequest {
-  path() {
-    return '/something-else';
-  }
-
-  extractResponse(response) {
-    const obj = JSON.parse(response.body); 
-    const somethingElse = obj.somethingElse;
-    return new SomethingElse(somethingElse.isAmazing, somethingElse.score);
-  }
-}
-
-class ProfileRequest {
-  path() {
-    return '/profile';
-  }
-
-  extractResponse(response) {
-    const obj = JSON.parse(response.body); 
-    const profile = obj.profile;
-    return new Profile(profile.name, profile.birthdate, profile.accessLevel);
-  }
-}
+class ProfileRequest {/*...*/}
 
 const client = new WebServiceClient('http://example.com');
 const profile = client.get(new ProfileRequest());

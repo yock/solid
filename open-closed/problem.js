@@ -20,21 +20,6 @@ class WebServiceClient {
   }
 }
 
-class SomethingElse {
-  constructor(isAmazing, score) {
-    this.isAmazing = isAmazing;
-    this.score = score;
-  }
-}
-
-class Profile {
-  constructor(name, birthdate, accessLevel) {
-    this.name = name;
-    this.birthdate = birthdate;
-    this.accessLevel = accessLevel;
-  }
-}
-
 const client = new WebServiceClient('http://example.com');
 const profile = client.get('/profile');
 const somethingElse = client.get('/something-else');
