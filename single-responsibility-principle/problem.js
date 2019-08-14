@@ -14,13 +14,5 @@ class WebServiceClient {
   }
 }
 
-class Profile {
-  constructor(name, birthdate, accessLevel) {
-    this.name = name;
-    this.birthdate = birthdate;
-    this.accessLevel = accessLevel;
-  }
-}
-
 const client = new WebServiceClient('http://example.com');
 const profile = client.get('/profile');

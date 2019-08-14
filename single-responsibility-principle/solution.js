@@ -8,14 +8,6 @@ class WebServiceClient {
   }
 }
 
-class Profile {
-  constructor(name, birthdate, accessLevel) {
-    this.name = name;
-    this.birthdate = birthdate;
-    this.accessLevel = accessLevel;
-  }
-}
-
 class WebServiceProfileMapper {
   constructor(response) {
     this.response = response;
