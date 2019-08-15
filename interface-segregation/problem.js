@@ -18,9 +18,6 @@ class WebServiceClient {
 }
 
 class Request {
-  path() {}
-  buildInstance(obj) {}
-
   /**
    * Not all requests are authenticated. This is awkward.
    */
@@ -34,40 +31,5 @@ class Request {
     return buildInstance(obj);
   }
 
-  logResponse(response) {
-    // logging code...
-  }
-}
-
-class SomethingElseRequest extends Request {
-  path() {
-    return '/something-else';
-  }
-
-  buildInstance(obj) {
-    const somethingElse = obj.somethingElse;
-    return new SomethingElse(somethingElse.isAmazing, somethingElse.score);
-  }
-}
-
-class ProfileRequest extends Request {
-  constructor(authToken) {
-    this.authToken = authToken;
-  }
-
-  path() {
-    return '/profile';
-  }
-
-  getAuthentication() {
-    return { token: this.authToken };
-  }
-
-  extractResponse(response) {
-    this.logResponse(response);
-    const obj = JSON.parse(response.body); 
-    const profileVersion = response.headers['X-Profile-Version'];
-    const profile = obj.profile;
-    return new Profile(profile.name, profile.birthdate, profile.accessLevel, profileVersion);
-  }
+  logResponse(response) {/*...*/}
 }

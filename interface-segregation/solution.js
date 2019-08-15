@@ -1,7 +1,3 @@
-const ENV = {
-  baseURL: 'http://example.com'
-}
-
 class WebServiceClient {
   get(request) {
     const response = fetch(request.getWebAPIRequest());
@@ -10,28 +6,21 @@ class WebServiceClient {
 }
 
 class WebServiceRequest {
-  buildInstance(obj) {}
-
   extractResponse(response) {
     this.logResponse(response);
     const obj = JSON.parse(response.body); 
     return buildInstance(obj);
   }
 
-  logResponse(response) {
-    // logging code...
-  }
+  logResponse(response) {/*...*/}
 }
 
 class SomethingElseRequest extends WebServiceRequest {
   getWebAPIRequest() {
-    return new Request(`${ENV['baseURL']}/something-else`);
+    return new Request('/something-else');
   }
 
-  buildInstance(obj) {
-    const somethingElse = obj.somethingElse;
-    return new SomethingElse(somethingElse.isAmazing, somethingElse.score);
-  }
+  buildInstance(obj) {/*...*/}
 }
 
 class ProfileRequest extends WebServiceRequest {
@@ -45,11 +34,5 @@ class ProfileRequest extends WebServiceRequest {
     return new Request(`${ENV['baseURL']}/profile`, { headers });
   }
 
-  extractResponse(response) {
-    this.logResponse(response);
-    const obj = JSON.parse(response.body); 
-    const profileVersion = response.headers['X-Profile-Version'];
-    const profile = obj.profile;
-    return new Profile(profile.name, profile.birthdate, profile.accessLevel, profileVersion);
-  }
+  extractResponse(response) {/*...*/}
 }
