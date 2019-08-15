@@ -1,6 +1,7 @@
 class Lamp {
   constructor() {
     this.state = 'off';
+    this.pluggedIn = true;
   }
 
   switchOn() {
