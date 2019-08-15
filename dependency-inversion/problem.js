@@ -1,5 +1,5 @@
-const getRemoteProfile(authToken) {
+getRemoteProfile(authToken) {
   const client = new WebServiceClient();
-  const profileRequest = new ProfileRequest(ENV['baseURL'], authToken);
+  const profileRequest = new ProfileRequest(authToken);
   return client.get(profileRequest);
 }
